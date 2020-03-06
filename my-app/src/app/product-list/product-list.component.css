@@ -1,0 +1,10 @@
+main {
+  padding: 5px;
+}
+
+main .container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  text-align: left;
+}

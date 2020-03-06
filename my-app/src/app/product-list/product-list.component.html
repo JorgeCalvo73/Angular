@@ -1,0 +1,43 @@
+<main>
+
+  <div>
+    <h2>Products</h2>
+
+    <i class="material-icons">view_module</i>
+    <i class="material-icons">view_list</i>
+  </div>
+
+
+  <div *ngFor="let product of products" class="container">
+
+    <div>
+      <img [src]="product.image" alt="Foto">
+    </div>
+
+
+    <div>
+      <h3>
+        <a [title]="product.name + ' details'">
+          {{ product.name }}
+        </a>
+      </h3>
+
+      <p *ngIf="product.description">
+        Description: {{ product.description }}
+      </p>
+
+      <p>
+        Precio: {{product.price}} €;
+      </p>
+
+      <p>
+        Fecha: {{product.createdAt}}
+      </p>
+
+      <button (click)="add()">
+        Add to cart
+      </button>
+    </div>
+  </div>
+
+</main>
