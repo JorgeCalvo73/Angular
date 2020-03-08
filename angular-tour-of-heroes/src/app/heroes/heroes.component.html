@@ -1,0 +1,11 @@
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+  </li>
+</ul>
+
+<!--Cuando se selecciona un héroe, selectedHero cambia, y al cambiar, el "property binding" actualiza el valor de hero y se muestra el nuevo héroe-->
+

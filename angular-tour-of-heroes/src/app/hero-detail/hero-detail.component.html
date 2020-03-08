@@ -1,0 +1,12 @@
+<!--Metemos este if porque por defecto la propiedad selectedHero está vacía, por lo que dará error. Sólo se debe mostrar el div de los detalles
+    cuando seleccionamos un héroe-->
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name" />
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+</div>
