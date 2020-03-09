@@ -1,0 +1,27 @@
+<header #header class="wrapper">
+  <i #menuIcon class="material-icons" (click)="openNav(header, menuIcon)">
+    menu
+  </i>
+  <nav>
+    <ul>
+      <li routerLink="/products" (click)="openNav(header, menuIcon)">
+        <i class="material-icons">
+          view_list
+        </i>
+        Products
+      </li>
+      <li routerLink="/shopping-car" (click)="openNav(header, menuIcon)">
+        <i class="material-icons">
+          shopping_cart
+        </i>
+        Shopping Car
+      </li>
+    </ul>
+  </nav>
+  <div>
+    Bootcamp Ecommerce
+  </div>
+  <i routerLink="/shopping-car" class="material-icons">
+    shopping_cart
+  </i>
+</header>

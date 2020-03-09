@@ -3,8 +3,8 @@
   <div>
     <h2>Products</h2>
 
-    <i class="material-icons">view_module</i>
-    <i class="material-icons">view_list</i>
+    <i class="material-icons" appAlternativeViews highlightText  = "GRID">view_module</i>
+    <i class="material-icons" appAlternativeViews highlightText = "NO_GRID">view_list</i>
   </div>
 
 
@@ -27,11 +27,11 @@
       </p>
 
       <p>
-        Precio: {{product.price}} €;
+        Precio: {{product.price | euroSymbol}}
       </p>
 
       <p>
-        Fecha: {{product.createdAt}}
+        Fecha: {{product.createdAt | date: 'fullDate'}}
       </p>
 
       <button (click)="add()">
