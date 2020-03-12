@@ -1,10 +1,22 @@
 <main>
   <label>
-    <input id="taskInput" type="text" placeholder="¿Qué necesitas hacer?">
+    <input #taskDescription id="taskInput" type="text" placeholder="¿Qué necesitas hacer?">
   </label>
+  <button class="button" title="create task" (click)="add(taskDescription.value)">
+    Add
+  </button>
   <ul id="taskList">
-    <!--  it fills with javascript listTasksElements function  -->
+    <li *ngFor="let task of tasks">
+      {{task.id}}
+      <span class="badge"></span> {{task.description}}
+      <!--
+      <button class="delete" title="delete task" (click)=delete(task)>
+        X
+      </button>-->
+
+    </li>
   </ul>
+
   <div class="info">
     <p id="tasksLeft">Quedan 6 tareas</p>
     <div>

@@ -4,8 +4,20 @@
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
+    <button class="delete" title="delete hero" (click)=delete(hero)>
+      X
+    </button>
   </li>
 </ul>
 
-<!--Cuando se selecciona un héroe, selectedHero cambia, y al cambiar, el "property binding" actualiza el valor de hero y se muestra el nuevo héroe-->
+<div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
 
+<!--Cuando se selecciona un héroe, selectedHero cambia, y al cambiar, el "property binding" actualiza el valor de hero y se muestra el nuevo héroe-->

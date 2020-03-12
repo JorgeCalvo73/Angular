@@ -12,6 +12,10 @@ export class HeroService {
 
   private heroesUrl = 'api/heroes'; // URL to web api
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(private messageService: MessageService, private http: HttpClient) { }
 
   /*Hacemos que el getHeroes retorne un Observable, que es el objeto que retorna una llamada HTTP en Angular. */
@@ -34,6 +38,33 @@ export class HeroService {
 
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
+  }
+
+  /** POST: add a new hero to the server */
+  addHero(hero: Hero): Observable<Hero> {
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
+      catchError(this.handleError<Hero>('addHero'))
+    );
+  }
+
+  /** PUT: update the hero on the server */
+  updateHero(hero: Hero): Observable<any> {
+    return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+      tap(_ => this.log(`updated hero id=${hero.id}`)),
+      catchError(this.handleError<any>('updateHero'))
+    );
+  }
+
+  /** DELETE: delete the hero from the server **/
+  deleteHero(hero: Hero | number): Observable<Hero>{
+    const id = typeof hero === 'number' ? hero: hero.id;
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.delete<Hero>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted hero id = ${id}`)),
+      catchError(this.handleError<Hero>('deleteHero'))
+    );
   }
 
   /**
