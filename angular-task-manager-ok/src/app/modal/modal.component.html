@@ -1,10 +1,10 @@
 <div class="modal">
   <div class="box">
-    <h2>¿Estás seguro de que deseas eliminar esta tarea?</h2>
-    <p><!--  it fills with javascript when modal opens  --></p>
+    <h2>{{message}}</h2>
+    <p>{{body}}</p>
     <div>
-      <button class="button large">Si</button>
-      <button class="button large">No</button>
+      <button (click)="yesButton.emit()" class="button large">Si</button>
+      <button (click)="noButton.emit()" class="button large">No</button>
     </div>
   </div>
 </div>
