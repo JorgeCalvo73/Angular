@@ -51,30 +51,30 @@ export class TaskService {
     return newTask;
   }
 
-updateTask(task: Task): Task {
-  const tasks = this.getData();
-  const index = tasks.findIndex(currentTask => currentTask.id === task.id);
+  updateTask(task: Task): Task {
+    const tasks = this.getData();
+    const index = tasks.findIndex(currentTask => currentTask.id === task.id);
 
-  tasks[index] = task;
-  this.saveData(tasks);
+    tasks[index] = task;
+    this.saveData(tasks);
 
-  return task;
-}
+    return task;
+  }
 
-deleteTask(task: Task): Task {
-  const tasks = this.getData();
-  const index = tasks.findIndex(currentTask => currentTask.id === task.id);
-  const deletedTask = tasks[index];
+  deleteTask(task: Task): Task {
+    const tasks = this.getData();
+    const index = tasks.findIndex(currentTask => currentTask.id === task.id);
+    const deletedTask = tasks[index];
 
-  tasks.splice(index, 1);
-  this.saveData(tasks);
+    tasks.splice(index, 1);
+    this.saveData(tasks);
 
-  return deletedTask;
-}
+    return deletedTask;
+  }
 
-tasksLeft(): number {
-  const tasks = this.getData();
-  return tasks.filter(task => task.done === false).length;
-}
+  tasksLeft(): number {
+    const tasks = this.getData();
+    return tasks.filter(task => task.done === false).length;
+  }
 
 }
